@@ -136,4 +136,6 @@
 
    **SensorsComponentController：** 校准的控制接口，负责调用UAS中的启动、停止校准接口，转发UAS解析出来的text message
 
--  **UAS：** 负责校准时和飞控通讯的主要接口，向飞控发送校准相关的指令，获取并解析校准所需的 **MAVLINK_MSG_ID_STATUSTEXT** 消息包，再将解析出来的text message转交给实际的传感器校准程序进行处理
+-  **UAS：** 负责校准时和飞控通讯的主要接口，向飞控发送校准相关的指令(mavlink_command_long消息包，command参数设为MAV_CMD_PREFLIGHT_CALIBRATION，即241，并设置对应的校准类型参数)
+   获取并解析校准所需的 **MAVLINK_MSG_ID_STATUSTEXT** 消息包，再将解析出来的text message转交给实际的传感器校准程序进行处理
+   ![calibrationCommand](https://github.com/strawdiving/Calibration1/blob/master/ReadmeImages/calibrationCommand.png)
