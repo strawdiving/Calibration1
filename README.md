@@ -118,7 +118,7 @@
 
 #### 校准流程
 
-校准时序图： [Sensors Calibration](https://github.com/strawdiving/Calibration1/blob/master/ReadmeImages/sensors.png)
+校准时序图： [Sensors Calibration](https://github.com/strawdiving/Calibration1/blob/master/ReadmeImages/sensorCalibration.png)
 
 ##### 传感器校准程序结构
 
