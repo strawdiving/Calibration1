@@ -63,16 +63,6 @@ signals:
 
     /// emit to mainWindow
     void modeChanged(QString shortModeText);
-    void telemetryChanged(uint8_t rssi);
-    void attitudeChanged(mavlink_attitude_t* attitude);
-    void altitudeChanged(float pressure_alt);
-    void batteryChanged(int8_t voltage_battery);
-    void GPSStatusChanged(mavlink_gps_raw_int_t* gps_raw_int);
-    void globalPositionChanged(mavlink_global_position_int_t* global_position_int);
-    void localPositionChanged(mavlink_local_position_ned_t* local_position);
-    void groundSpeedChanged(float);
-    void statusChanged(uint8_t status);
-    void armedChanged(uint32_t);
 
     void PIDSetConfirm(mavlink_pid_set_confirm_t pid_set_confirm);
 

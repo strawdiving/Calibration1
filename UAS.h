@@ -1,7 +1,6 @@
 /**
  * @file
  *   @brief Class UAS. This class handls calibration related messages.
- *   @author QAH <qin.anhong@163.com>
  *
  */
 #ifndef UAS_H
@@ -28,18 +27,13 @@ public:
    void writeParameterRaw(int componentId, const QString& paramName, const QVariant& value);
   /// /// Request reading parameters from the flight controller (PARAM_REQUEST_READ)
    void readParameterRaw(int componentId, const QString& paramName, int paramIndex);
-
    void writePIDParams(QString moduleName,QMap<QString,float>paramValue);
 
    /// type of calibration
    enum CalibrationType {
        CalibrationGyro,
        CalibrationMag,
-       CalibrationMagDetail,
-       CalibrationAccelDetail,
        CalibrationAccel,
-       CalibrationGyroTmp,
-       CalibrationAccelTmp
    };
 
    /// start calibration of type of calType  (MAV_CMD_PREFLIGHT_CALIBRATION)

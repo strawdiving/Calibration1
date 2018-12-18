@@ -23,7 +23,7 @@
     </widget>
    </item>
    <item row="1" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0,0,0,0,0,0,0,0,3">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0,0,0,0,3">
      <item>
       <widget class="QLabel" name="label_2">
        <property name="font">
@@ -88,58 +88,6 @@
         </size>
        </property>
       </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_Mag_Detail">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Mag_Detail</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_Accel_Detail">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Accel_Detail</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_Gyro_Tmp">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Gyro_Tmp</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_Accel_Tmp">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Accel_Tmp</string>
-       </property>
-      </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer">

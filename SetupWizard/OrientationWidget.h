@@ -1,6 +1,9 @@
 #ifndef ORIENTATIONWIDGET_H
 #define ORIENTATIONWIDGET_H
 
+/**
+ * Widget to show calibration status of one side (with picture)
+  **/
 #include <QWidget>
 #include <QLabel>
 

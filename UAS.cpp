@@ -26,11 +26,7 @@ void UAS::startCalibration(CalibrationType calType)
 
     int gyroCal = 0;
     int magCal = 0;
-    int magDetailCal = 0;
-    int accelDetailCal = 0;
     int accelCal = 0;
-    int gyroTmpCal = 0;
-    int accelTmpCal = 0;
 
     switch(calType) {
     case CalibrationGyro:
@@ -38,21 +34,9 @@ void UAS::startCalibration(CalibrationType calType)
         break;
     case CalibrationMag:
         magCal = 1;
-        break;
-    case CalibrationMagDetail:
-        magDetailCal = 1;
-        break;
-    case CalibrationAccelDetail:
-        accelDetailCal = 1;
-        break;
+        break;  
     case CalibrationAccel:
         accelCal = 1;
-        break;
-    case CalibrationGyroTmp:
-        gyroTmpCal = 1;
-        break;
-    case CalibrationAccelTmp:
-        accelTmpCal = 1;
         break;
     }
 
@@ -64,11 +48,11 @@ void UAS::startCalibration(CalibrationType calType)
     command.confirmation = 0; // 0 = first transmission of command
     command.param1 = gyroCal; //gyro cal
     command.param2 = magCal; //mag cal
-    command.param3 = magDetailCal; //mag detail cal
-    command.param4 = accelDetailCal; //accel detail cal
+    command.param3 = 0; //ground pressure
+    command.param4 = 0; //radio cal
     command.param5 = accelCal; //accel cal
-    command.param6 = gyroTmpCal; //gyro temp cal
-    command.param7 = accelTmpCal; //accel temp cal
+    command.param6 = 0; //
+    command.param7 = 0; //empty?
     mavlink_msg_command_long_encode(_uasId,defaultComponentId,&msg,&command);
     _vehicle->linkManager()->sendMessage(msg);
 }

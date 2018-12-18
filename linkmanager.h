@@ -1,8 +1,7 @@
 /**
  * @file
- *   @brief Class LinkManager. This class manages serial configures and links, receive the complete mavlink packet and decode ,emit signals
- *               to MainWindow.
- *   @author QAH <qin.anhong@163.com>
+ *   @brief Class LinkManager. This class manages serial configures and links, receive the complete mavlink packet and decode , and forward messages to
+ *               Vehicle to handle.
  *
  */
 #ifndef LINKMANAGER_H
@@ -46,18 +45,18 @@ public:
 
    quint64 getHeartbeatTime() {return lastHeartbeat;}
 
-   ///get current link and call sendMessage(SerialLink* link, mavlink_message_t message)
+   /// get current link and call sendMessage(SerialLink* link, mavlink_message_t message)
    void sendMessage(mavlink_message_t message);
-   /////send message via serial link
+   /// send message via serial link
    void sendMessage(SerialLink* link, mavlink_message_t message);
 
 signals:
-   void linkDisconnected(SerialLink* link);
-
-   /// Forward heartbeat package
+   /// Forward heartbeat package to VehicleManager to activate a vehicle
    void vehicleHeartbeatInfo(SerialLink* link, int vehicleId);
-   /// Forward received message
+   /// Forward received message to Vehicle to handle
    void messageReceived(SerialLink*link, mavlink_message_t &message);
+    /// Forward to Vehicle to handle
+   void linkDisconnected(SerialLink* link);
 
 private slots:
     void _linkConnected(void);

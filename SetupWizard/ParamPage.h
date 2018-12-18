@@ -1,6 +1,10 @@
 #ifndef PARAMPAGE_H
 #define PARAMPAGE_H
 
+/**
+ * Page to show and set PID parameters, mainly used to adjust parameters by engineer
+  **/
+
 #include <QWidget>
 #include "PX4AutopioltPlugins/ParamEditController.h"
 #include <QMap>

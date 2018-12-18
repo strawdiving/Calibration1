@@ -123,8 +123,10 @@ void SetupWidget::_showComponentPanel(QString name)
             ui->stackedWidget->setCurrentWidget(_paramPage);
         }
         else {
-            _sensorsPage->initSensorsController();
-            ui->stackedWidget->setCurrentWidget(_sensorsPage);
+            if(name == "Sensors") {
+                _sensorsPage->initSensorsController();
+                ui->stackedWidget->setCurrentWidget(_sensorsPage);
+            }
         }
     }
 }

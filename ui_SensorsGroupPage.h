@@ -37,10 +37,6 @@ public:
     QPushButton *pushButton_Accel;
     QPushButton *pushButton_Mag;
     QSpacerItem *horizontalSpacer_4;
-    QPushButton *pushButton_Mag_Detail;
-    QPushButton *pushButton_Accel_Detail;
-    QPushButton *pushButton_Gyro_Tmp;
-    QPushButton *pushButton_Accel_Tmp;
     QSpacerItem *horizontalSpacer;
     QLabel *label;
     QProgressBar *progressBar_CalProgress;
@@ -95,36 +91,12 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer_4);
 
-        pushButton_Mag_Detail = new QPushButton(SensorsGroupPage);
-        pushButton_Mag_Detail->setObjectName(QStringLiteral("pushButton_Mag_Detail"));
-        pushButton_Mag_Detail->setFont(font);
-
-        horizontalLayout->addWidget(pushButton_Mag_Detail);
-
-        pushButton_Accel_Detail = new QPushButton(SensorsGroupPage);
-        pushButton_Accel_Detail->setObjectName(QStringLiteral("pushButton_Accel_Detail"));
-        pushButton_Accel_Detail->setFont(font);
-
-        horizontalLayout->addWidget(pushButton_Accel_Detail);
-
-        pushButton_Gyro_Tmp = new QPushButton(SensorsGroupPage);
-        pushButton_Gyro_Tmp->setObjectName(QStringLiteral("pushButton_Gyro_Tmp"));
-        pushButton_Gyro_Tmp->setFont(font);
-
-        horizontalLayout->addWidget(pushButton_Gyro_Tmp);
-
-        pushButton_Accel_Tmp = new QPushButton(SensorsGroupPage);
-        pushButton_Accel_Tmp->setObjectName(QStringLiteral("pushButton_Accel_Tmp"));
-        pushButton_Accel_Tmp->setFont(font);
-
-        horizontalLayout->addWidget(pushButton_Accel_Tmp);
-
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
 
         horizontalLayout->setStretch(0, 1);
-        horizontalLayout->setStretch(9, 3);
+        horizontalLayout->setStretch(5, 3);
 
         gridLayout->addLayout(horizontalLayout, 1, 0, 1, 1);
 
@@ -173,10 +145,6 @@ public:
         pushButton_Gyro->setText(QApplication::translate("SensorsGroupPage", "Gyro", Q_NULLPTR));
         pushButton_Accel->setText(QApplication::translate("SensorsGroupPage", "Accel", Q_NULLPTR));
         pushButton_Mag->setText(QApplication::translate("SensorsGroupPage", "Mag", Q_NULLPTR));
-        pushButton_Mag_Detail->setText(QApplication::translate("SensorsGroupPage", "Mag_Detail", Q_NULLPTR));
-        pushButton_Accel_Detail->setText(QApplication::translate("SensorsGroupPage", "Accel_Detail", Q_NULLPTR));
-        pushButton_Gyro_Tmp->setText(QApplication::translate("SensorsGroupPage", "Gyro_Tmp", Q_NULLPTR));
-        pushButton_Accel_Tmp->setText(QApplication::translate("SensorsGroupPage", "Accel_Tmp", Q_NULLPTR));
         label->setText(QApplication::translate("SensorsGroupPage", "\344\274\240\346\204\237\345\231\250\346\240\241\345\207\206", Q_NULLPTR));
         label_StatusText->setText(QApplication::translate("SensorsGroupPage", "\351\200\211\346\213\251\344\270\212\351\235\242\347\232\204\346\214\211\351\222\256\357\274\214\345\274\200\345\247\213\346\240\241\345\207\206", Q_NULLPTR));
     } // retranslateUi

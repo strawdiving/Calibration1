@@ -1,6 +1,9 @@
 #ifndef SENSORSCOMPONENTCONTROLLER_H
 #define SENSORSCOMPONENTCONTROLLER_H
 
+/** Interface to start and stop calibration
+  **/
+
 #include <QObject>
 #include "ComponentController.h"
 
@@ -14,10 +17,6 @@ public:
     void calibrateGyro(void);
     void calibrateMag(void);
     void calibrateAccel(void);
-    void calibrateMagDetail(void);
-    void calibrateAccelDetail(void);
-    void calibrateGyroTmp(void);
-    void calibrateAccelTmp(void);
 
 signals:  
     void handleUASTextMessage(QString textMessage);
