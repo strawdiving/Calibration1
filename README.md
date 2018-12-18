@@ -80,7 +80,7 @@
 
 #### 校准示意图
 
-![sensors](sensors)
+![sensors](https://github.com/strawdiving/Calibration1/blob/master/ReadmeImages/sensors.png)
 
 #### 校准方法
 
@@ -118,7 +118,7 @@
 
 #### 校准流程
 
-![sensorCalibration](sensorCalibration)
+校准时序图： [Sensors Calibration](https://github.com/strawdiving/Calibration1/blob/master/ReadmeImages/sensors.png)
 
 ##### 传感器校准程序结构
 
