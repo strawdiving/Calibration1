@@ -15,7 +15,7 @@ const QVariantList& PX4AutopilotPlugin::vehicleComponents(void)
 {
     if(_vehicleComponents.count() == 0) {
         _sensorsComponent = new SensorsComponent(this);
-        _sensorsComponent->setupTriggerSignals();
+//        _sensorsComponent->setupTriggerSignals();
 
         _vehicleComponents.append(QVariant::fromValue((VehicleComponent*)_sensorsComponent));
     }

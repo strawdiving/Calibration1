@@ -82,6 +82,8 @@ PIDParamSet::PIDParamSet(QString name) :
     for(int i = 0; i < sizeof(type2Params)/sizeof(type2Params[0]); i++ ) {
         if(_name == type2Params[i].moduleName) {
             ui->groupBox->setTitle(type2Params[i].moduleName);
+
+            // set min,max,singleStep,decimal of QDoubleSpinBox for PID setting
             QDoubleSpinBox* doubleSpinBox =  this->findChild<QDoubleSpinBox*>(type2Params[i].paramName);
             if(doubleSpinBox) {
                 doubleSpinBox->setMaximum(type2Params[i].paramProperties.maxValue);
@@ -104,6 +106,8 @@ PIDParamSet::~PIDParamSet()
 void PIDParamSet::paramConfirmed(float P,float rate_P,float rate_I,float rate_D)
 {
     //qDebug()<<"PIDParamSet: paramConfirmed";
+
+    // if uninitialized ,set with the initial value sent back by the flight controller.
     if(ui->P->text().toFloat()<0 || ui->RateP->text().toFloat()<0 || ui->RateI->text().toFloat()<0 || ui->RateD->text().toFloat()<0)
     {
         ui->P->setValue(P);
@@ -112,6 +116,8 @@ void PIDParamSet::paramConfirmed(float P,float rate_P,float rate_I,float rate_D)
         ui->RateD->setValue(rate_D);
         _storeInitSettings();
     }
+
+    // else, confirm that params have been set successfully
 
     if( ui->P->text().toFloat()==P) {
         ui->P->setStyleSheet("border:3px solid #27c927;color:green");

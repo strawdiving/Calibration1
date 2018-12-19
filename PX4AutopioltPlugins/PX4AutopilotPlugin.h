@@ -1,6 +1,9 @@
 #ifndef PX4AUTOPILOTPLUGIN_H
 #define PX4AUTOPILOTPLUGIN_H
 
+/**
+ * The only interface to get Fact
+  **/
 #include "SensorsComponent.h"
 #include "Fact.h"
 #include "PX4ParameterMetaData.h"

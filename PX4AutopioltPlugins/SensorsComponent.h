@@ -2,7 +2,7 @@
 #define SENSORSCOMPONENT_H
 
 /**
-  Inherit from VehicleComponent class,
+ * Inherit from VehicleComponent class,
   **/
 #include "VehicleComponent.h"
 

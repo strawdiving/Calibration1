@@ -54,6 +54,7 @@ void UAS::startCalibration(CalibrationType calType)
     command.param6 = 0; //
     command.param7 = 0; //empty?
     mavlink_msg_command_long_encode(_uasId,defaultComponentId,&msg,&command);
+
     _vehicle->linkManager()->sendMessage(msg);
 }
 

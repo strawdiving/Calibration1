@@ -24,19 +24,19 @@ QStringList VehicleComponent::setupCompleteChangedTriggerList(void) const
    return QStringList();
 }
 
-void VehicleComponent::setupTriggerSignals(void)
-{
-    foreach (const QString paramName, setupCompleteChangedTriggerList()) {
-        if (_autopilot->paramExists(-1,paramName)) {
-            Fact* paramFact = _autopilot->getParamFact(-1,paramName);
-            connect(paramFact,&Fact::valueChanged, this, &VehicleComponent::_triggerUpdated);
-        }
-    }
-}
+//void VehicleComponent::setupTriggerSignals(void)
+//{
+//    foreach (const QString paramName, setupCompleteChangedTriggerList()) {
+//        if (_autopilot->paramExists(-1,paramName)) {
+//            Fact* paramFact = _autopilot->getParamFact(-1,paramName);
+//            connect(paramFact,&Fact::valueChanged, this, &VehicleComponent::_triggerUpdated);
+//        }
+//    }
+//}
 
-void VehicleComponent::_triggerUpdated(QVariant value)
-{
-    QStringList incompleteComponents = setupComplete();
-    qDebug()<<" Incomplete setup components:  "<<incompleteComponents;
-    //emit setupCompleteChanged(setupComplete());
-}
+//void VehicleComponent::_triggerUpdated(QVariant value)
+//{
+//    QStringList incompleteComponents = setupComplete();
+//    qDebug()<<" Incomplete setup components:  "<<incompleteComponents;
+//    emit setupCompleteChanged(setupComplete());
+//}

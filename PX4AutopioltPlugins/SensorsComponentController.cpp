@@ -36,5 +36,5 @@ void SensorsComponentController::_stopCalibration(void)
 {
     //disconnect(_uas,&UAS::textMessageReceived,this,&SensorsComponentController::_handleUASTextMessage);
     _uas->stopCalibration();
-    //_autopilot->refreshParameters();
+    _autopilot->refreshParameters();
 }

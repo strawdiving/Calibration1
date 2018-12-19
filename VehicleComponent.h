@@ -19,9 +19,14 @@ public:
     VehicleComponent(PX4AutopilotPlugin* autopilot, QObject *parent = 0);
     ~VehicleComponent();
 
+    /// name of component
     virtual QString name(void) const = 0;
+    /// icon resource of component
     virtual QString iconResource(void) const = 0;
+    /// @return true: the component needs to be set
     virtual bool requiresSetup(void) const = 0;
+
+    /// @return list of component names that have not been calibrated
     virtual QStringList setupComplete(void) const = 0;
 
      /// @return true: Setup panel can be shown while vehicle is armed
@@ -33,13 +38,14 @@ public:
 
     /// Should be called after the component is created (but not in constructor) to setup the
     /// signals which are used to track parameter changes which affect setupComplete state.
-    void setupTriggerSignals(void);
+//    void setupTriggerSignals(void);
 
 signals:
-    //void setupCompleteChanged(bool setupComplete);
+//    void setupCompleteChanged(bool setupComplete);
 
 public slots:
-    void _triggerUpdated(QVariant value);
+    /// reload calibration state
+//    void _triggerUpdated(QVariant value);
 
 protected:
     PX4AutopilotPlugin* _autopilot;

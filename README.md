@@ -2,6 +2,8 @@
 
 #### text message示例
 
+本程序的传感器校准是参考PX4的校准过程实现的，PX4传感器校准的text message实例如下所示：
+
 ```c++
 磁力计校准失败
 "[cal] calibration started: 2 mag"
@@ -84,11 +86,11 @@
 
 #### 校准方法
 
-- Gyro（陀螺仪）的校准只要水平放置一段时间
+注： **传感器的校准策略一般由飞控程序开发人员设计实现，如有需要，还会重新定义通讯协议（重新定义MAVLink消息包，定制额外的MAVLink消息包），开发地面站时以此为参考，需要同步MAVLink库**  
 
-- Compass（磁力计/罗盘）的校准需要6个面依次持续旋转（不低于7s），以采集足够的数据点
-
-- Accel（加速计）的校准需要6个面依次放置一段时间
+- Gyro（陀螺仪）的校准只需检测一个面，水平放置足够长时间
+- Compass（磁力计/罗盘）的校准需要检测6个面，6个面依次持续旋转（不低于7s），以采集足够的数据点
+- Accel（加速计）的校准需要检测6个面，6个面依次平放足够长时间
 
 #### 校准提示
 
@@ -136,6 +138,30 @@
 
    **SensorsComponentController：** 校准的控制接口，负责调用UAS中的启动、停止校准接口，转发UAS解析出来的text message
 
--  **UAS：** 负责校准时和飞控通讯的主要接口，向飞控发送校准相关的指令(mavlink_command_long消息包，command参数设为MAV_CMD_PREFLIGHT_CALIBRATION，即241，并设置对应的校准类型参数);
+-  **UAS：** 负责校准时和飞控通讯的主要接口，向飞控发送校准相关的指令——command_long消息包(#76)，command参数设为MAV_CMD_PREFLIGHT_CALIBRATION，即241，并设置对应的校准类型参数；
    获取并解析校准所需的 **MAVLINK_MSG_ID_STATUSTEXT** 消息包，再将解析出来的text message转交给实际的传感器校准程序进行处理
    ![calibrationCommand](https://github.com/strawdiving/Calibration1/blob/master/ReadmeImages/calibrationCommand.PNG)
+
+### Chapter2 .  PID调参
+
+该部分程序主要是为飞控开发人员提供便捷的PID控制参数调参接口。
+
+#### PID调参流程
+
+PID调参时序图： [PID调参时序图]()
+
+#### PID调参程序结构
+
+- /SetupWizard/
+
+  **ParamPage：**PID调参主页面，用以显示和设置PID参数，包含6个PIDParamSet widget，分别进行PITCH/ROLL/YAW/X/Y/Z的PID调参
+
+  **PIDParamSet：** PID调参主页面上的单个调参widget，提供了各个PID参数的默认值、最大/小值等
+
+- /PX4AutopilotPlugin/
+
+  **ParamEditController：** PID调参的控制接口，负责调用UAS中写PID参数的接口，在Vehicle收到 **PID_SET_Confirm（#157）**消息时转发Vehicle解析出来的消息包
+
+- **UAS：** 负责向飞控发送PID参数设置相关的消息包（ **#151~#156** ）来进行PID参数的设置
+
+- 新增的自定义的PID调参相关的消息包详见 [消息包定义](https://github.com/strawdiving/Calibration1/blob/master/libs/mavlink/MAVLink/message_definitions/common.xml) 中（id为#151~#157的8个消息包）
