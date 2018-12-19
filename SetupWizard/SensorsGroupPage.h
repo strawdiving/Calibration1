@@ -2,7 +2,7 @@
 #define SENSORSGROUPPAGE_H
 
 /**
- * UI page for sensors calibration,
+ * Main panel for sensors calibration,
  * handle calibration text messages , and show calibration messages and visual status (with pictures)
   **/
 #include <QWidget>

@@ -2,7 +2,7 @@
 #define PARAMPAGE_H
 
 /**
- * Main page to show and set PID parameters, mainly used to adjust parameters by engineer
+ * Main panel to show and set PID parameters, mainly used to adjust parameters by engineer
   **/
 
 #include <QWidget>

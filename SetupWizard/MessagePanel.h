@@ -1,7 +1,8 @@
 #ifndef MESSAGEPANEL_H
 #define MESSAGEPANEL_H
 
-/** show important messages for calibration, with ui
+/**
+ * Display important messages for calibration and parameters loading, with ui
   **/
 #include <QWidget>
 #include <QLabel>

@@ -1,6 +1,8 @@
 #ifndef SUMMARYVIEWPAGE_H
 #define SUMMARYVIEWPAGE_H
 
+/** Panel to show overall calibration status
+  **/
 #include <QWidget>
 #include <QModelIndex>
 #include <QMap>
@@ -20,11 +22,15 @@ public:
     ~SummaryViewPage();
 
 signals:
+    /// signal to SetupWidget to show the specified panel
     void showPanel(QString compName);
 
 public slots:
+    /// change messages about setup/calibration
     void _setupCompleteChange(bool setupComplete);
+    /// change visual calibration status (with pictures)
     void _setupCompleteStatus(QStringList incomplete);
+    /// show the specified panel
     void _showPanel(QModelIndex);
 
 private:
@@ -34,7 +40,10 @@ private:
     const QString needSetupText = "WARNING: Your vehicle requires setup prior to flight.Please resolve"
                                   " the items marked in red using the menu on the left.";
 
+    /// list of component names that need calibration
     QStringList _incompleteComps;
+    /// key: iconResource
+    /// value: component name
     QMap<QString,QString> _components;
 };
 
