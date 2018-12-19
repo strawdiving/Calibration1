@@ -85,6 +85,7 @@ FORMS    += mainwindow.ui \
     SetupWizard/SensorsGroupPage.ui \
     SetupWizard/CalRotationWidget.ui \
     SetupWizard/PIDParamSet.ui \
+    SetupWizard/ParamPage.ui
 
 UI_DIR  += E:/baseModule-12.17
 RESOURCES += \
