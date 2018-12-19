@@ -138,7 +138,7 @@
 
    **SensorsComponentController：** 校准的控制接口，负责调用UAS中的启动、停止校准接口，转发UAS解析出来的text message
 
--  **UAS：** 负责校准时和飞控通讯的主要接口，向飞控发送校准相关的指令——command_long消息包(#76)，command参数设为MAV_CMD_PREFLIGHT_CALIBRATION，即241，并设置对应的校准类型参数；
+-  **UAS：** 负责校准时和飞控通讯的主要接口，向飞控发送校准相关的指令—— **command_long消息包(#76)** ，command参数设为   **MAV_CMD_PREFLIGHT_CALIBRATION，即241** ，并设置对应的校准类型参数；
    获取并解析校准所需的 **MAVLINK_MSG_ID_STATUSTEXT** 消息包，再将解析出来的text message转交给实际的传感器校准程序进行处理
    ![calibrationCommand](https://github.com/strawdiving/Calibration1/blob/master/ReadmeImages/calibrationCommand.PNG)
 
@@ -154,7 +154,7 @@ PID调参时序图： [PID调参时序图](https://github.com/strawdiving/Calibr
 
 - /SetupWizard/
 
-  **ParamPage：**PID调参主页面，用以显示和设置PID参数，包含6个PIDParamSet widget，分别进行PITCH/ROLL/YAW/X/Y/Z的PID调参
+  **ParamPage：** PID调参主页面，用以显示和设置PID参数，包含6个PIDParamSet widget，分别进行PITCH/ROLL/YAW/X/Y/Z的PID调参
 
   **PIDParamSet：** PID调参主页面上的单个调参widget，提供了各个PID参数的默认值、最大/小值等
 
@@ -164,4 +164,4 @@ PID调参时序图： [PID调参时序图](https://github.com/strawdiving/Calibr
 
 - **UAS：** 负责向飞控发送PID参数设置相关的消息包（ **#151~#156** ）来进行PID参数的设置
 
-- 新增的自定义的PID调参相关的消息包详见 [消息包定义](https://github.com/strawdiving/Calibration1/blob/master/libs/mavlink/MAVLink/message_definitions/common.xml) 中（id为#151~#157的8个消息包）
+- 新增的自定义的PID调参相关的消息包详见 [消息包定义](https://github.com/strawdiving/Calibration1/blob/master/libs/mavlink/MAVLink/message_definitions/common.xml) 中（id为 **#151~#157** 的8个消息包）
