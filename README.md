@@ -148,7 +148,7 @@
 
 #### PID调参流程
 
-PID调参时序图： [PID调参时序图]()
+PID调参时序图： [PID调参时序图](https://github.com/strawdiving/Calibration1/blob/master/ReadmeImages/pidset.png)
 
 #### PID调参程序结构
 
@@ -160,7 +160,7 @@ PID调参时序图： [PID调参时序图]()
 
 - /PX4AutopilotPlugin/
 
-  **ParamEditController：** PID调参的控制接口，负责调用UAS中写PID参数的接口，在Vehicle收到 **PID_SET_Confirm（#157）**消息时转发Vehicle解析出来的消息包
+  **ParamEditController：** PID调参的控制接口，负责调用UAS中写PID参数的接口，在Vehicle收到 **PID_SET_Confirm（#157）** 消息时转发Vehicle解析出来的消息包
 
 - **UAS：** 负责向飞控发送PID参数设置相关的消息包（ **#151~#156** ）来进行PID参数的设置
 
