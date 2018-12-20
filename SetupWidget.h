@@ -1,6 +1,9 @@
 #ifndef SETUPWIDGET_H
 #define SETUPWIDGET_H
 
+/** The panel to handle calibration process
+  **/
+
 #include <QWidget>
 #include <QStackedWidget>
 #include <QListWidget>

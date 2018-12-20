@@ -30,7 +30,6 @@ SOURCES += main.cpp\
     FactMetaData.cpp \
     ParameterLoader.cpp \
     PX4ParameterMetaData.cpp \
-    VehicleComponent.cpp \
     PX4AutopioltPlugins/PX4AutopilotPlugin.cpp \
     PX4AutopioltPlugins/SensorsComponent.cpp \
     PX4FirmwarePlugin.cpp \
@@ -40,7 +39,6 @@ SOURCES += main.cpp\
     Toolbox.cpp \
     VehicleManager.cpp \
     UAS.cpp \
-    ComponentController.cpp \
     SetupWizard/MessagePanel.cpp \
     SetupWidget.cpp \
     SetupWizard/SummaryViewPage.cpp \
@@ -50,6 +48,8 @@ SOURCES += main.cpp\
     SetupWizard/ParamPage.cpp \
     PX4AutopioltPlugins/ParamEditController.cpp \
     SetupWizard/PIDParamSet.cpp \
+    PX4AutopioltPlugins/ComponentController.cpp \
+    PX4AutopioltPlugins/VehicleComponent.cpp \
 
 HEADERS  += mainwindow.h \
     linkmanager.h \
@@ -78,6 +78,8 @@ HEADERS  += mainwindow.h \
     SetupWizard/ParamPage.h \
     PX4AutopioltPlugins/ParamEditController.h \
     SetupWizard/PIDParamSet.h \
+    PX4AutopioltPlugins/ComponentController.h \
+    PX4AutopioltPlugins/VehicleComponent.h
 
 FORMS    += mainwindow.ui \
     SetupWidget.ui \

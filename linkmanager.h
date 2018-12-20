@@ -15,7 +15,7 @@
 #include <QDateTime>
 #include <mavlink_types.h>
 
-#define DEFAULT_SYSTEM_ID 255
+#define DEFAULT_SYSTEM_ID 1
 #define DEFAULT_COMPONENT_ID 0
 //APM 3 Pixhawk 1
 

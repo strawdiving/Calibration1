@@ -17,7 +17,7 @@ Fact ParameterLoader::_defaultFact;
 
 ParameterLoader::ParameterLoader(Vehicle* vehicle,QObject *parent) :
     QObject(parent),
-   _defaultCompId(PX4AutopilotPlugin::defaultCompId),
+   _defaultCompId(0),
     _vehicle(vehicle),
     _compParamsComplete(false),
     _currentParamCount(0),
@@ -36,7 +36,7 @@ ParameterLoader::~ParameterLoader()
 
 }
 
-//check whether params loaded completely, and send param_request_list message to request for all parameters
+/// check whether params loaded completely, and send param_request_list message to request for all parameters
 void ParameterLoader::_refreshAllParameters()
 {
     qDebug()<<"ParameterLoader: refreshAllParameters";
@@ -167,6 +167,7 @@ void ParameterLoader::_checkInitialLoadComplete(void)
     }
 }
 
+/// get metadata of parameter from metadata file ":\\cal_params.xml"，add metadata to Fact
  void ParameterLoader::_addMetaDataToDefaultComponent(void)
  {
      if(_defaultCompId == PX4AutopilotPlugin::defaultCompId) {
@@ -182,7 +183,7 @@ void ParameterLoader::_checkInitialLoadComplete(void)
      }
  }
 
-/// Connected to Fact::valueUpdated
+/// Connected to Fact::valueUpdated, called when some value updated
 /// Writes the parameter to mavlink, sets up for write wait
 void ParameterLoader::_valueUpdated(const QVariant& value)
 {

@@ -22,6 +22,7 @@ PX4FirmwarePlugin::~PX4FirmwarePlugin()
 
 }
 
+/// create PX4ParameterMetaData object to load and parse parameter metadata file
 PX4ParameterMetaData* PX4FirmwarePlugin::loadParamFactMetaDataFile(QString &metaDataFile)
 {
     PX4ParameterMetaData*px4MetaData = new PX4ParameterMetaData;
@@ -31,6 +32,7 @@ PX4ParameterMetaData* PX4FirmwarePlugin::loadParamFactMetaDataFile(QString &meta
     return px4MetaData;
 }
 
+/// call PX4ParameterMetaData object to add parameter metadata to related Fact object
 void PX4FirmwarePlugin::addMetaDataToFact(PX4ParameterMetaData* px4MetaData,Fact* fact)
 {
     if(px4MetaData)

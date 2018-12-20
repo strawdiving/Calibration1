@@ -6,7 +6,6 @@
 class LinkManager;
 class VehicleManager;
 class QuadApplication;
-class UASMessageHandler;
 class PX4FirmwarePlugin;
 
 class Toolbox
@@ -16,7 +15,6 @@ public:
     ~Toolbox();
     LinkManager* linkManager(void) { return _linkMgr;}
     VehicleManager* vehicleManager(void) { return _vehicleMgr;}
-    UASMessageHandler* uasMessageHandler(void) { return _uasMessageHandler;}
     PX4FirmwarePlugin* firmwarePlugin(void) {return _firmwarePlugin;}
 
    private:

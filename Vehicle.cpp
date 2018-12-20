@@ -15,21 +15,18 @@ Vehicle::Vehicle(SerialLink* link, int vehicleId,PX4FirmwarePlugin *firmwarePlug
     , _uas(NULL)
     , _parameterLoader(NULL)
     , _base_mode(0)
-    , _system_status(-1)
     , _firmwarePlugin(firmwarePlugin)
 {
     //qDebug()<<"vehicle";
     _addLink(link);
 
     _autopilotPlugin = new PX4AutopilotPlugin(this,this);
+    _uas = new UAS(this);
+    _parameterLoader = new ParameterLoader(this,this);
+    connect(_parameterLoader,&ParameterLoader::paramsReady,_autopilotPlugin,&PX4AutopilotPlugin:: _parametersReadyChanged);
 
     _linkMgr = qgcApp()->toolbox()->linkManager();
     connect(_linkMgr,&LinkManager::messageReceived,this,&Vehicle::_mavlinkMessageReceived);
-
-    _uas = new UAS(this);
-
-    _parameterLoader = new ParameterLoader(this,this);
-    connect(_parameterLoader,&ParameterLoader::paramsReady,_autopilotPlugin,&PX4AutopilotPlugin:: _parametersReadyChanged);
 }
 
 Vehicle::~Vehicle()

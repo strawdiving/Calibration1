@@ -5,7 +5,7 @@
 #include <QGridLayout>
 #include<QMessageBox>
 
-#include "ComponentController.h"
+#include "PX4AutopioltPlugins/ComponentController.h"
 #include "SetupWizard/MessagePanel.h"
 #include "QuadApplication.h"
 #include "VehicleManager.h"

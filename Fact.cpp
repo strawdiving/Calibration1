@@ -9,6 +9,7 @@ Fact::Fact(QObject *parent) :
 
 }
 
+/// created based on the name and type of the parameter, set with metadata associated
 Fact::Fact(int componentId,QString name, FactMetaData::ValueType_t type,QObject *parent)
     :QObject(parent),
       _compId(componentId),

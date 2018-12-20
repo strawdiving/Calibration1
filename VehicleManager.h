@@ -31,17 +31,20 @@ public:
     }
 
 signals:
+    /// signal to MainWindow and SetupWidget to enable/disable monitor and calibration
     void activeVehicleChanged(Vehicle* vehicle);
 
 public slots:
+    /// create active vehicle
     void _vehicleHeartbeatInfo(SerialLink* link, int vehicleId);
 
 private slots:
+    /// deactivate vehicle
     void _deleteVehicle(Vehicle* vehicle);
 
 private:
        LinkManager* _linkMgr;
-       Vehicle* _activeVehicle;
+       Vehicle* _activeVehicle; /// active vehicle
        PX4FirmwarePlugin* _firmwarePlugin;
 };
 

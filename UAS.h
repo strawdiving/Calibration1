@@ -25,7 +25,7 @@ public:
 
    /// Request writing parameters to the flight controller (PARAM_SET)
    void writeParameterRaw(int componentId, const QString& paramName, const QVariant& value);
-  /// /// Request reading parameters from the flight controller (PARAM_REQUEST_READ)
+  ///  Request reading parameters from the flight controller (PARAM_REQUEST_READ)
    void readParameterRaw(int componentId, const QString& paramName, int paramIndex);
    void writePIDParams(QString moduleName,QMap<QString,float>paramValue);
 
@@ -47,6 +47,7 @@ public:
 protected:
 
 signals:
+    /// signal to ParameterLoader to handle
     ///component: componentId
     /// paramName-- param_value.param_id[16]
     /// paramCount--param_value.param_count
@@ -56,11 +57,13 @@ signals:
     void parameterUpdate(int componentId, QString paramName, int paramCount, int paramId, int type, QVariant value);
 
     ///@brief  A text message from the system has been received
+    /// signal to SensorsComponentController to handle calibration text message
     void textMessageReceived(int componentid, QString text);
 
 public slots:
 
 private:
+    /// get and send proper parameter info to ParameterLoader to handle
     void _processParamValueMsg(mavlink_message_t &message,const QString &paramName,const mavlink_param_value_t &rawValue,mavlink_param_union_t &paramValue);
     /// change ValueType_t in FactMetaData to MAV_PARAM_TYPE
     MAV_PARAM_TYPE _factTypeToMavType(FactMetaData::ValueType_t valueType);

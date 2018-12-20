@@ -1,6 +1,13 @@
 #ifndef PX4FIRMWAREPLUGIN_H
 #define PX4FIRMWAREPLUGIN_H
 
+/**
+ *  Create PX4ParameterMetaData object to load and parse parameter metadata file,
+ *  add parameter metadata to related Fact object
+ *  The only interface to access PX4ParameterMetaData object
+ *
+  **/
+
 #include "Toolbox.h"
 #include "Fact.h"
 

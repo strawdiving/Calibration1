@@ -2,7 +2,6 @@
  * @file
  *   @brief Class Vehicle. This class represents a vehicle with specific id, it handles received messages
  *  sent from LinkManager instance, decodes and parses messages and then dispatchs parsed valid information.
- *   @author QAH <qin.anhong@163.com>
  *
  */
 #ifndef VEHICLE_H
@@ -29,6 +28,7 @@ public:
     explicit Vehicle(SerialLink* link, int vehicleId, PX4FirmwarePlugin* firmwarePlugin);
     ~Vehicle();
 
+    /// all called by vihicle when used afterwards
     PX4AutopilotPlugin* autopilotPlugin(void) {return _autopilotPlugin;}
     UAS* uas(void) {return _uas;}
     ParameterLoader* parameterLoader(void) {return _parameterLoader;}
@@ -38,37 +38,35 @@ public:
     int id(void) { return _vehicleId;}
 
 private:
-    /// current flight mode
-    QString _flightMode(uint8_t baseMode);
+    QString _flightMode(uint8_t baseMode);  /// string of current flight mode
     void _addLink(SerialLink* link);
-    /// handle heartbeat message
-    void _handleHeartbeat(mavlink_message_t& message);
+    void _handleHeartbeat(mavlink_message_t& message);  /// handle heartbeat message
 
     PX4FirmwarePlugin* _firmwarePlugin;
-    PX4AutopilotPlugin* _autopilotPlugin;
-    SerialLink* _link;
     LinkManager * _linkMgr;
+    SerialLink* _link;
+
+    /// all created by vehicle
+    PX4AutopilotPlugin* _autopilotPlugin;
     UAS* _uas;
     ParameterLoader* _parameterLoader;
 
-    /// id of current vehicle
-    int                     _vehicleId;
-    //flight modes, 2-manual, 3- altitude, 3-position
-    uint8_t             _base_mode;
-    uint32_t           _armed;
-    int8_t               _system_status;
+    int                     _vehicleId;  /// system id of current vehicle
+    uint8_t             _base_mode;   /// custom flight modes, 2-manual, 3- altitude, 3-position
 
 signals:
+    /// signal to VehicleManager to handle link deletion
     void linkDeleted(Vehicle* vehicle);
 
-    /// emit to mainWindow
+    /// signal to mainWindow to change flight mode text
     void modeChanged(QString shortModeText);
 
     void PIDSetConfirm(mavlink_pid_set_confirm_t pid_set_confirm);
 
 public slots:
     void _linkDeleted(SerialLink* link);
-    // Handle messages according to different message types
+    /// Handle messages from LinkManager, parse status of vehicle and flight, call UAS to handle
+    /// PARAM_VALUE and STATUS_TEXT messages
     void _mavlinkMessageReceived(SerialLink*link, mavlink_message_t &message);
 };
 
